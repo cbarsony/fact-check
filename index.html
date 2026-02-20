@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FACT CHECK — World Bank Data Visualizer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-wrapper">
+
+  <!-- ── Header ── -->
+  <header class="app-header">
+    <h1>Fact Check</h1>
+    <span class="header-sub">World Bank Data Visualizer</span>
+  </header>
+
+  <!-- ── Main ── -->
+  <main class="app-main">
+
+    <!-- Controls panel -->
+    <aside class="controls-panel">
+
+      <!-- X Axis -->
+      <div class="control-section">
+        <span class="section-label">X Axis</span>
+        <label>Dimension
+          <select id="x-axis-select"></select>
+        </label>
+        <div id="x-sub-controls"></div>
+      </div>
+
+      <!-- Y Axis -->
+      <div class="control-section">
+        <span class="section-label">Y Axis</span>
+        <label>Dimension
+          <select id="y-axis-select"></select>
+        </label>
+        <div id="y-sub-controls"></div>
+      </div>
+
+      <!-- Common controls (country / time range shared block) -->
+      <div id="common-controls"></div>
+
+      <!-- Generate -->
+      <div class="control-section">
+        <button id="generate-btn" class="generate-btn">Generate</button>
+        <p id="status-msg" class="status-msg"></p>
+      </div>
+
+    </aside>
+
+    <!-- Chart area -->
+    <section id="chart-area" class="chart-area">
+      <div class="chart-placeholder" id="chart-placeholder">
+        <p>No data loaded</p>
+        <p>Select dimensions and press Generate</p>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart-canvas"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="app-footer">
+    Data source: <a href="https://data.worldbank.org/" target="_blank" rel="noopener">World Bank Open Data</a>
+    &mdash; All data is fetched live from the World Bank API. No API key required.
+  </footer>
+
+</div>
+
+<!-- App scripts -->
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
